@@ -88,11 +88,15 @@ Your Core Mandates:
 ```
 
 ---
+## 🤖 AI-Assisted Development
 
+Sakinah was first designed using **Google Stitch**, where the application's interface and user experience were created through natural language prompts. The project was then exported to **Google AI Studio**, where prompt-driven development was used to iteratively build and enhance the application. Google AI Studio assisted in implementing features such as Firebase Authentication, Cloud Firestore integration, the Gemini-powered AI Assistant, prayer tracking, Qur'an progress tracking, and other application functionality. All generated code was reviewed, tested, and refined throughout the development process.
 ## 🛠️ Tools, Services & Technologies Used
 
 | Category | Technology / Service | Description |
 | :--- | :--- | :--- |
+**UI Design** | Google Stitch | Designed the application's high-fidelity user interface and user experience before development. |
+| **AI Development** | Google AI Studio | Used prompt-driven development to generate, refine, and implement application features, Firebase integration, and AI functionality. |
 | **Frontend Framework** | React 18, TypeScript, Vite | Modern, fast single-page app architecture |
 | **Styling & UI** | Tailwind CSS, Motion (Framer Motion) | Utility-first responsive design & smooth animations |
 | **Icons** | Lucide React | Clean, accessible vector icons |
