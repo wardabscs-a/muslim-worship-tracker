@@ -107,6 +107,22 @@ Sakinah was first designed using **Google Stitch**, where the application's inte
 | **Deployment** | Vercel / Cloud Run | Scalable production hosting |
 
 ---
+## 📸 Screenshots
+
+### 🏠 Home Screen & Dhikr Counter
+![Home Screen](screenshots/homepage%20and%20zikr%20counter.jpeg)
+
+### 🤖 Sakinah AI Assistant
+![AI Assistant](screenshots/AI%20assistant.jpeg)
+
+### 📖 Prayer Log & Post-Prayer Dhikr
+![Prayer Log](screenshots/prayer%20log%20and%20post%20prayer%20zikr.jpeg)
+
+### 📊 Worship History
+![History](screenshots/history.jpeg)
+
+### ⚙️ Settings
+![Settings](screenshots/settings.jpeg)
 
 ## 💻 How to Run the Project Locally
 
