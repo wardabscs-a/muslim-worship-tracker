@@ -1,0 +1,12 @@
+{
+  "projectId": "muslim-worship-tracker",
+  "appId": "1:718434340016:web:0d6357b0af1338f0cd7f75",
+  "apiKey": "AIzaSyDCBjNkijeTMMgcmRl8K9RI3IwzBRkc7xc",
+  "authDomain": "muslim-worship-tracker.firebaseapp.com",
+  "storageBucket": "muslim-worship-tracker.firebasestorage.app",
+  "messagingSenderId": "718434340016",
+  "firestoreDatabaseId": "(default)",
+  "measurementId": "",
+  "oAuthClientId": "",
+  "recaptchaSiteKey": ""
+}

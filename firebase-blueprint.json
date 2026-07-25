@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "users": {
+      "title": "users",
+      "description": "User profile, prayer logs, dhikr counts, goals, and app settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "joinedDate": { "type": "string" },
+        "level": { "type": "number" },
+        "xp": { "type": "number" },
+        "streak": { "type": "number" },
+        "dhikrCount": { "type": "number" },
+        "settings": { "type": "object" },
+        "city": { "type": "string" },
+        "logs": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "chatHistory": {
+      "title": "chatHistory",
+      "description": "Per-user isolated AI assistant chat history",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "messages": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "messages"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/users" },
+      "description": "User profile and main user record"
+    },
+    "/users/{userId}/assistant/chatHistory": {
+      "schema": { "$ref": "#/entities/chatHistory" },
+      "description": "User isolated AI assistant chat history"
+    }
+  }
+}

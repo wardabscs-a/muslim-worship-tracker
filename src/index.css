@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: var(--primary-color);
+  --color-primary-container: var(--primary-container-color);
+  --color-on-primary-container: var(--on-primary-container-color);
+  --color-secondary: var(--secondary-color);
+  --color-secondary-container: var(--secondary-container-color);
+  --color-on-secondary-container: var(--on-secondary-container-color);
+  --color-background: var(--background-color);
+  --color-surface: var(--surface-color);
+  --color-surface-container: var(--surface-container-color);
+  --color-surface-container-lowest: var(--surface-container-lowest-color);
+}
+
+:root {
+  --primary-color: #154212;
+  --primary-container-color: #2d5a27;
+  --on-primary-container-color: #9dd090;
+  --secondary-color: #735c00;
+  --secondary-container-color: #fed65b;
+  --on-secondary-container-color: #745c00;
+  --background-color: #fbf9f8;
+  --surface-color: #fbf9f8;
+  --surface-container-color: #efeded;
+  --surface-container-lowest-color: #ffffff;
+  --text-color: #1b1c1c;
+}
+
+.dark {
+  --primary-color: #8be07e;
+  --primary-container-color: #1a3c18;
+  --on-primary-container-color: #a7e29a;
+  --secondary-color: #fed65b;
+  --secondary-container-color: #4c3d00;
+  --on-secondary-container-color: #fed65b;
+  --background-color: #0b0f0b;
+  --surface-color: #111611;
+  --surface-container-color: #1b221b;
+  --surface-container-lowest-color: #141b14;
+  --text-color: #e2e8f0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--text-color);
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar hiding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bento-card {
+  background: var(--surface-container-lowest-color);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.bento-card:active {
+  transform: scale(0.99);
+}
+
+/* Custom progress transition */
+.bar-animate {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+

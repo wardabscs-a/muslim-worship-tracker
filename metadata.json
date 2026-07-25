@@ -1,0 +1,6 @@
+{
+  "name": "Muslim Worship Tracker",
+  "description": "A tranquil and minimalist Muslim worship tracker to log prayers, recite daily dhikr, and contemplate curated Quranic verses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
