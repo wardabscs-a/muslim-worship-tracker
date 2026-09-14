@@ -11,13 +11,9 @@ import {
   Moon,
   Sun,
   Laptop,
-  Lock,
-  Eye,
   LogOut,
   Calendar,
-  ChevronRight,
   Sparkles,
-  CheckCircle2,
   MapPin,
 } from "lucide-react";
 import { UserProfile, AppSettings } from "../types";
@@ -137,7 +133,11 @@ export default function SettingsScreen({
             </div>
           )}
           <p className="text-xs text-white/75 font-semibold">
-            Joined {user.joinedDate} • Level {user.level} Muhsin
+           <p className="text-xs text-white/75 font-semibold">
+  {user.isLoggedIn
+    ? `Joined ${user.joinedDate} • Level ${user.level} Muhsin`
+    : "Guest Mode • Local Data"}
+</p>
           </p>
         </div>
 
@@ -351,50 +351,26 @@ export default function SettingsScreen({
         </div>
       </section>
 
-      {/* Account & Security */}
-      <section className="space-y-3">
-        <h3 className="text-xs font-black text-gray-400 dark:text-emerald-500/80 uppercase tracking-wider px-1">
-          Account & Security
-        </h3>
-        <div className="bg-white dark:bg-[#141b14] rounded-3xl overflow-hidden border border-gray-100 dark:border-[#1e2a1e]/45 shadow-sm">
-          <div className="flex flex-col">
-            <button className="flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-emerald-950/10 transition-colors text-left w-full cursor-pointer border-b border-gray-50 dark:border-[#1e2a1e]/45">
-              <div className="flex items-center gap-3">
-                <User className="h-5 w-5 text-gray-400" />
-                <span className="text-sm font-bold text-gray-800 dark:text-gray-200">Edit Personal Info</span>
-              </div>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-            </button>
+{/* Account & Security */}
+<section className="space-y-3">
+  <h3 className="text-xs font-black text-gray-400 dark:text-emerald-500/80 uppercase tracking-wider px-1">
+    Account & Security
+  </h3>
 
-            <button className="flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-emerald-950/10 transition-colors text-left w-full cursor-pointer border-b border-gray-50 dark:border-[#1e2a1e]/45">
-              <div className="flex items-center gap-3">
-                <Lock className="h-5 w-5 text-gray-400" />
-                <span className="text-sm font-bold text-gray-800 dark:text-gray-200">Privacy & Data</span>
-              </div>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-            </button>
-
-            <button className="flex items-center justify-between p-4 hover:bg-gray-50 dark:hover:bg-emerald-950/10 transition-colors text-left w-full cursor-pointer border-b border-gray-50 dark:border-[#1e2a1e]/45">
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="h-5 w-5 text-gray-400" />
-                <span className="text-sm font-bold text-gray-800 dark:text-gray-200">Security Verification</span>
-              </div>
-              <ChevronRight className="h-4 w-4 text-gray-400" />
-            </button>
-
-            <button
-              onClick={onSignOut}
-              className="flex items-center justify-between p-4 hover:bg-red-50/50 dark:hover:bg-red-950/10 transition-colors text-left w-full cursor-pointer text-red-600 dark:text-red-400"
-            >
-              <div className="flex items-center gap-3">
-                <LogOut className="h-5 w-5" />
-                <span className="text-sm font-bold">Sign Out</span>
-              </div>
-            </button>
-          </div>
+  <div className="bg-white dark:bg-[#141b14] rounded-3xl overflow-hidden border border-gray-100 dark:border-[#1e2a1e]/45 shadow-sm">
+    <div className="flex flex-col">
+      <button
+        onClick={onSignOut}
+        className="flex items-center justify-between p-4 hover:bg-red-50/50 dark:hover:bg-red-950/10 transition-colors text-left w-full cursor-pointer text-red-600 dark:text-red-400"
+      >
+        <div className="flex items-center gap-3">
+          <LogOut className="h-5 w-5" />
+          <span className="text-sm font-bold">Sign Out</span>
         </div>
-      </section>
-
+      </button>
+    </div>
+  </div>
+</section>
       {/* Spiritual Momentum Bento / Journey Growth */}
       <section className="mb-4">
         <div className="bg-[#faf6f3] dark:bg-emerald-950/15 border border-amber-100/50 dark:border-emerald-800/20 rounded-3xl p-6 relative overflow-hidden">

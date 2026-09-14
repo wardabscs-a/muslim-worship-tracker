@@ -47,7 +47,7 @@ export default function App() {
   const [user, setUser] = useState<UserProfile>({
     name: "Muhsin",
     email: "guest@sakinah.com",
-    joinedDate: "October 2023",
+    joinedDate: "Guest Mode • Local Data",
     level: 12,
     xp: 2400,
     streak: 0,
