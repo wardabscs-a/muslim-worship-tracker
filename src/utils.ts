@@ -153,6 +153,7 @@ export const createEmptyPrayerState = (): PrayerState => ({
   asr: false,
   maghrib: false,
   isha: false,
+  tahajjud: false,
   ayatulKursi: false,
 });
 

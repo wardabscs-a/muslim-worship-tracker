@@ -16,7 +16,6 @@ import {
   CheckCircle,
   Circle,
   Award,
-  Sun,
   Star,
   PlusCircle,
   HelpCircle,
@@ -435,36 +434,24 @@ export default function HomeScreen({
           })}
         </div>
 
-        {/* Other sunnah buttons */}
-        <div className="grid grid-cols-2 gap-3 pt-2">
-          {/* Tahajjud Button */}
-          <button
-            onClick={() => togglePrayer("fajr")}
-            className="p-3 rounded-xl border border-dashed border-gray-200 dark:border-[#1e2a1e]/60 flex items-center gap-2 text-left hover:bg-gray-50/50 dark:hover:bg-emerald-950/10 cursor-pointer"
-          >
-            <Star className="h-4 w-4 text-secondary dark:text-amber-400" />
-            <div>
-              <p className="text-xs font-bold text-gray-800 dark:text-gray-200">Tahajjud</p>
-              <p className="text-[10px] text-gray-400 dark:text-gray-400 font-semibold uppercase">
-                {todayLog.prayers.fajr ? "Completed" : "Pending"}
-              </p>
-            </div>
-          </button>
-
-          {/* Duha Button */}
-          <button
-            onClick={() => togglePrayer("dhuhr")}
-            className="p-3 rounded-xl border border-dashed border-gray-200 dark:border-[#1e2a1e]/60 flex items-center gap-2 text-left hover:bg-gray-50/50 dark:hover:bg-emerald-950/10 cursor-pointer"
-          >
-            <Sun className="h-4 w-4 text-secondary dark:text-amber-400" />
-            <div>
-              <p className="text-xs font-bold text-gray-800 dark:text-gray-200">Duha</p>
-              <p className="text-[10px] text-gray-400 dark:text-gray-400 font-semibold uppercase">
-                {todayLog.prayers.dhuhr ? "Completed" : "Pending"}
-              </p>
-            </div>
-          </button>
-        </div>
+      {/* Optional Sunnah Prayer */}
+<div className="grid grid-cols-1 gap-3 pt-2">
+  {/* Tahajjud Button */}
+  <button
+    onClick={() => togglePrayer("tahajjud")}
+    className="p-3 rounded-xl border border-dashed border-gray-200 dark:border-[#1e2a1e]/60 flex items-center gap-2 text-left hover:bg-gray-50/50 dark:hover:bg-emerald-950/10 cursor-pointer"
+  >
+    <Star className="h-4 w-4 text-secondary dark:text-amber-400" />
+    <div>
+      <p className="text-xs font-bold text-gray-800 dark:text-gray-200">
+        Tahajjud
+      </p>
+      <p className="text-[10px] text-gray-400 dark:text-gray-400 font-semibold uppercase">
+        {todayLog.prayers.tahajjud ? "Completed" : "Pending"}
+      </p>
+    </div>
+  </button>
+</div>
       </section>
 
       {/* Daily Verse (Dynamic via Server-Side Gemini) */}

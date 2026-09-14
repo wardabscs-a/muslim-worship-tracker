@@ -20,6 +20,7 @@ export interface PrayerState {
   asr: boolean;
   maghrib: boolean;
   isha: boolean;
+  tahajjud: boolean;
   ayatulKursi: boolean;
 }
 
