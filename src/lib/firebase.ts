@@ -10,6 +10,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   User,
@@ -67,6 +68,9 @@ export async function signInWithGoogle(): Promise<User> {
 export async function signInWithEmail(email: string, pass: string): Promise<User> {
   const userCredential = await signInWithEmailAndPassword(auth, email, pass);
   return userCredential.user;
+}
+export async function sendPasswordReset(email: string): Promise<void> {
+  await sendPasswordResetEmail(auth, email);
 }
 
 /**

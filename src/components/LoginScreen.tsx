@@ -6,8 +6,7 @@
 import React, { useState } from "react";
 import { Mail, Lock, ArrowRight, Leaf } from "lucide-react";
 import { motion } from "motion/react";
-import { signInWithGoogle, signInWithEmail } from "../lib/firebase";
-
+import { signInWithGoogle, signInWithEmail, sendPasswordReset } from "../lib/firebase";
 interface LoginScreenProps {
   onLoginSuccess: (name: string, email: string, uid?: string) => void;
   onNavigateToCreateAccount: () => void;
@@ -24,6 +23,7 @@ export default function LoginScreen({
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const handleGoogleSignIn = async () => {
     setIsGoogleLoading(true);
@@ -73,6 +73,30 @@ export default function LoginScreen({
       setIsLoading(false);
     }
   };
+  const handleForgotPassword = async () => {
+  if (!email) {
+    setErrorMsg("Please enter your email address first.");
+    return;
+  }
+
+  setErrorMsg("");
+  setSuccessMsg("");
+
+  try {
+    await sendPasswordReset(email);
+    setSuccessMsg(
+  "Password reset link sent! Please check your inbox and Spam/Junk folder."
+);
+  } catch (err: any) {
+    console.error(err);
+
+    if (err.code === "auth/invalid-email") {
+      setErrorMsg("Please enter a valid email address.");
+    } else {
+      setErrorMsg("Failed to send password reset email. Please try again.");
+    }
+  }
+};
 
   return (
     <div className="w-full max-w-md mx-auto flex flex-col items-center justify-center min-h-[90vh] px-6 py-12">
@@ -101,10 +125,16 @@ export default function LoginScreen({
         <section className="w-full bg-white p-6 rounded-3xl shadow-md shadow-gray-100 border border-gray-100/50 space-y-6">
           <form className="space-y-4" onSubmit={handleSubmit}>
             {errorMsg && (
-              <div className="p-3 text-xs font-semibold text-red-600 bg-red-50 rounded-xl border border-red-100">
-                {errorMsg}
-              </div>
-            )}
+  <div className="p-3 text-xs font-semibold text-red-600 bg-red-50 rounded-xl border border-red-100">
+    {errorMsg}
+  </div>
+)}
+
+{successMsg && (
+  <div className="p-3 text-xs font-semibold text-green-600 bg-green-50 rounded-xl border border-green-100">
+    {successMsg}
+  </div>
+)}
 
             {/* Email Field */}
             <div className="space-y-1">
@@ -158,7 +188,7 @@ export default function LoginScreen({
               <button
                 type="button"
                 className="text-primary font-semibold hover:underline"
-                onClick={() => setErrorMsg("Reset link simulated! Please use any mock password to login.")}
+                onClick={handleForgotPassword}
               >
                 Forgot Password?
               </button>
